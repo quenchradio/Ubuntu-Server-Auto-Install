@@ -1,0 +1,23 @@
+###########################################################
+# Created by @tazboyz16 
+# This Service File was created at 
+# https://github.com/tazboyz16/Ubuntu-Server-Auto-Install
+# @ 2017 Copyright
+# GNU General Public License v3.0
+###########################################################
+[Unit]
+Description=Webmin Server
+After=network.target
+After=syslog.target
+
+[Service]
+# Start main service
+Restart=always
+Type=forking
+
+ExecStart=/etc/webmin/start
+ExecStop=/etc/webmin/stop
+ExecRestart=/etc/webmin/restart
+
+[Install]
+WantedBy=multi-user.target

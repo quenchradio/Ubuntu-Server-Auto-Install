@@ -1,0 +1,23 @@
+###########################################################
+# Created by @tazboyz16 
+# This Service File was created at 
+# https://github.com/tazboyz16/Ubuntu-Server-Auto-Install
+# @ 2017 Copyright
+# GNU General Public License v3.0
+###########################################################
+[Unit]
+Description=SinusBot Service
+Wants=syslog.target network.target
+
+[Service]
+User=sinusbot
+ExecStartPre=rm -f /tmp/.sinusbot.lock
+ExecStopPost=rm -f /tmp/.sinusbot.lock
+ExecStart=/opt/Sinusbot/sinusbot -pwreset=foobar
+WorkingDirectory=/opt/Sinusbot
+Type=simple
+KillSignal=2
+SendSIGKILL=yes
+
+[Install]
+WantedBy=multi-user.target

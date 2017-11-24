@@ -1,0 +1,24 @@
+###########################################################
+# Created by @tazboyz16 
+# This Service File was created at 
+# https://github.com/tazboyz16/Ubuntu-Server-Auto-Install
+# @ 2017 Copyright
+# GNU General Public License v3.0
+###########################################################
+[Unit]
+Description=NZBGet Daemon
+Documentation=http://nzbget.net/Documentation
+After=network.target
+
+[Service]
+User=Nzbget
+Group=Nzbget
+Type=forking
+ExecStart=/opt/Nzbget/nzbget -D
+ExecStop=/opt/Nzbget/nzbget -Q
+#ExecReload=/opt/Nzbget/nzbget -O
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,26 @@
+###########################################################
+# Created by @tazboyz16 
+# This Service File was created at 
+# https://github.com/tazboyz16/Ubuntu-Server-Auto-Install
+# @ 2017 Copyright
+# GNU General Public License v3.0
+###########################################################
+[Unit]
+Description=Radarr Daemon
+After=syslog.target network.target
+
+[Service]
+User=Radarr
+Group=Radarr
+
+Type=simple
+ExecStart=/usr/bin/mono /opt/Radarr/Radarr.exe -nobrowser
+TimeoutStopSec=20
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+#If Radarr does not restart after an update, enable the following
+#ExecStop=-/usr/bin/mono /tmp/radarr_update/Radarr.Update.exe "ps aux | grep Radarr | grep -v grep | awk '{ print $2 }'" /tmp/radarr_update /opt/Radarr/Radarr.exe

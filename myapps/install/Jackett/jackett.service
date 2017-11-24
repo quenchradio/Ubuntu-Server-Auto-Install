@@ -1,0 +1,23 @@
+###########################################################
+# Created by @tazboyz16 
+# This Service File was created at 
+# https://github.com/tazboyz16/Ubuntu-Server-Auto-Install
+# @ 2017 Copyright
+# GNU General Public License v3.0
+###########################################################
+[Unit]
+Description=Jackett Daemon
+After=network.target
+
+[Service]
+User=Jackett
+Group=Jackett
+Type=simple
+ExecStart=/usr/bin/mono /opt/Jackett/JackettConsole.exe
+TimeoutStopSec=20
+Restart=no
+RemainAfterExit=yes
+
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,20 @@
+###########################################################
+# Created by @tazboyz16 
+# This Service File was created at 
+# https://github.com/tazboyz16/Ubuntu-Server-Auto-Install
+# @ 2017 Copyright
+# GNU General Public License v3.0
+###########################################################
+
+[Unit]
+Description=CouchPotato Service
+After=network.target
+
+[Service]
+ExecStart=/opt/CouchPotato/CouchPotato.py
+Type=simple
+User=Couchpotato
+Group=Couchpotato
+
+[Install]
+WantedBy=multi-user.target

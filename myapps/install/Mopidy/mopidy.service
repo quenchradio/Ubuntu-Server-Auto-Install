@@ -1,0 +1,17 @@
+#https://github.com/mopidy/mopidy/blob/master/extra/systemd/mopidy.service
+[Unit]
+Description=Mopidy music server
+After=avahi-daemon.service
+After=dbus.service
+After=network.target
+After=nss-lookup.target
+After=pulseaudio.service
+After=remote-fs.target
+After=sound.target
+
+[Service]
+User=mopidy
+ExecStart=/usr/bin/mopidy --config /usr/share/mopidy/conf.d:/etc/mopidy/mopidy.conf -o http/hostname=0.0.0.0
+
+[Install]
+WantedBy=multi-user.target

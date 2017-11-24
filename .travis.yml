@@ -1,0 +1,6 @@
+{
+  "language": "shell",
+  "group": "stable",
+  "dist": "trusty",
+  "os": "linux"
+}
